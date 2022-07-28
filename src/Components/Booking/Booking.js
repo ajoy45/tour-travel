@@ -10,9 +10,9 @@ const Booking = ({ carData }) => {
     const [selection1, setSelection] = useState('')
     const [address1, setAddress] = useState('')
     // console.log(myName,email,number,selection,address)
-    const { name} = carData;
+    const { name } = carData;
     const newData = {
-        person_name:myName,
+        person_name: myName,
         email: email1,
         number: number1,
         selection: selection1,
@@ -27,9 +27,9 @@ const Booking = ({ carData }) => {
         setSelection(event.target.selection.value)
         setAddress(event.target.address.value)
 
-        
-        
-        const url = 'http://localhost:5000/booking';
+
+
+        const url = 'https://stark-beyond-03998.herokuapp.com/booking';
         fetch(url, {
             method: "POST",
             headers: {

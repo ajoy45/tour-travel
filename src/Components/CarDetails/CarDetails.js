@@ -5,9 +5,9 @@ import Booking from '../Booking/Booking';
 const CarDetails = () => {
     const { id } = useParams();
     const [carData, setCardata] = useState({});
-    
+
     useEffect(() => {
-        fetch(`http://localhost:5000/cars/${id}`)
+        fetch(`https://stark-beyond-03998.herokuapp.com/cars/${id}`)
             .then(res => res.json())
             .then(data => setCardata(data))
     }, [id])
@@ -32,12 +32,12 @@ const CarDetails = () => {
                     <p>
                         <span className='fw-bold'>Monthlu Rent:</span>{monthly_rent}
                     </p>
-                    
+
                 </div>
                 <div className='col-12 col-md-6 col-lg-6 pt-4'>
-                   <Booking 
-                    carData={carData}
-                   ></Booking>
+                    <Booking
+                        carData={carData}
+                    ></Booking>
                 </div>
 
             </div>
