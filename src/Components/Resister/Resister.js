@@ -2,22 +2,19 @@ import React, { useState } from 'react';
 import './Resister.css';
 import Row from 'react-bootstrap/Row';
 import { useNavigate } from "react-router-dom";
-import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
+import { useAuthState, useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import Social from '../Social/Social';
 import auth from '../Firebase/Firebase.ini';
 
 const Resister = () => {
     const [googleSingIn] = Social();
     const navigate = useNavigate();
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const[user]=useAuthState(auth)
+    
     
     const [
         createUserWithEmailAndPassword,
-        user,
-        loading,
-        error,
+       
       ] = useCreateUserWithEmailAndPassword(auth);
 
     const [updateProfile] = useUpdateProfile(auth);
@@ -28,15 +25,17 @@ const Resister = () => {
 
     const handelToResister = async (event) => {
         event.preventDefault()
-        setName(event.target.name.value)
-        setEmail(event.target.email.value)
-        setPassword(event.target.password.value)
+        const name=event.target.name.value
+        const email=event.target.email.value
+        const password=event.target.password.value
         await createUserWithEmailAndPassword(email,password);
         await updateProfile({ displayName: name });
         alert('successfuly resister')
         if(user){
             navigate('/login')
         }
+            
+        
       
 
     }

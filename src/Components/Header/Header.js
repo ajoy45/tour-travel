@@ -9,7 +9,7 @@ import Logout from '../LogOut/Logout';
 const Header = () => {
   const[remove]=Logout()
   const [user] = useAuthState(auth);
-  // console.log(user?.displayName)
+  console.log(user?.displayName)
     return (
         <div>
             <Navbar collapseOnSelect expand="lg" className="bg-header" variant="dark">

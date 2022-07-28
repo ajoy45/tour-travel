@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Login.css';
 import Row from 'react-bootstrap/Row';
 import { useLocation, useNavigate } from "react-router-dom";
 import auth from '../Firebase/Firebase.ini';
-import {  useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import {  useAuthState, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import Social from '../Social/Social';
 
 const Login = () => {
-    const[googleSingIn]=Social()
+    const[googleSingIn]=Social();
+    const[user]=useAuthState(auth)
     const location = useLocation();
-    const from = location.state?.from?.pathname || "/";
+    const from = location.state?.from?.pathname || '/';
     const navigate = useNavigate()
-    const[email,setEmail]=useState('')
-    const[password,setPassword]=useState('')
+    
     const handelToResister=()=>{
         navigate('/singup')
     }
@@ -24,11 +24,14 @@ const Login = () => {
     
     const handelToLogin= event=>{
              event.preventDefault()
-             setEmail(event.target.email.value)
-             setPassword(event.target.password.value)
+             const email=(event.target.email.value)
+             const password=(event.target.password.value)
              signInWithEmailAndPassword(email,password)
-             navigate(from, { replace: true });
-    }
+             
+                navigate(from, { replace: true });
+             }
+            
+    
     return (
         <div className='w-50 mx-auto p-5'>
             <h1 className='text-center text-color'>LOGIN </h1>
