@@ -1,24 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Roll } from 'react-reveal';
 import img1 from '../../images/contact/13.jpg'
 import './AddNewCar.css'
 const AddNewCar = () => {
-    const [name, setName] = useState('');
-    const [img, setImg] = useState('');
-    const [passenger, setPassenger] = useState('');
-    const [condition, setCondition] = useState('');
-    const [daily, setDaily] = useState('');
-    const [monthly, setMonthly] = useState('');
+    
 
     const handelAddToCar = (event) => {
 
         event.preventDefault()
-        setName(event.target.name.value)
-        setImg(event.target.img.value)
-        setPassenger(event.target.passenger.value)
-        setCondition(event.target.condition.value)
-        setDaily(event.target.daily.value)
-        setMonthly(event.target.monthly.value)
+        const name=(event.target.name.value)
+        const img=(event.target.img.value)
+        const passenger=(event.target.passenger.value)
+        const condition=(event.target.condition.value)
+        const daily=(event.target.daily.value)
+        const monthly=(event.target.monthly.value)
         const data = {
             img: img,
             name: name,
