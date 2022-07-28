@@ -1,0 +1,11 @@
+.card-btn{
+    border: none;
+    padding: 10px;
+    background-color: #775a89;
+    color: white;
+    font-size: 20px;
+}
+.icon{
+   position: relative;
+   top: 3px;
+}

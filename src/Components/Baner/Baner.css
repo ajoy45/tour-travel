@@ -1,0 +1,7 @@
+.baner-container{
+    background-image: url('../../images/baner/baner.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 200px 0 200px 0;
+    background-position: center;
+}

@@ -1,0 +1,31 @@
+
+.contact-img img{
+    width: 100%;
+}
+.contact-form{
+    
+    margin-top: 20px;
+}
+.contact-form input{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 13px;
+
+}
+.contact-form input:focus{
+    outline: none;
+}
+.contact-form textarea{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 13px;
+    
+}
+.contact-form textarea:focus{
+    outline: none;
+    
+}
+.horizontal{
+    color: #12006a ;
+
+}
